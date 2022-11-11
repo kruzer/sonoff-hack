@@ -27,9 +27,6 @@ HOSTNAME=$(cat /var/sdcard/sonoff-hack/etc/hostname)
 sed -i "s/dhcpname=\$2/dhcpname=$HOSTNAME/g" /tmp/dhcp.sh
 mount --bind /tmp/dhcp.sh /mnt/mtd/ipc/app/script/dhcp.sh
 
-echo "alias vim=vi" >> /etc/profile
-echo "alias ll='ls -al'" >> /etc/profile
-
 # Remove colink binary
 touch /tmp/colink
 mount --bind /tmp/colink /mnt/mtd/ipc/app/colink

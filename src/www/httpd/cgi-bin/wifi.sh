@@ -76,6 +76,17 @@ elif [ $ACTION == "save" ]; then
             update t_sys_param set c_param_value='3' where c_param_name='wf_auth'; \
             update t_sys_param set c_param_value='1' where c_param_name='wf_enc';"
 
+				if [ ! -f /mnt/mtd/ipc/cfg/DyVoiceRecog.bin ]; then
+                touch /mnt/mtd/ipc/cfg/DyVoiceRecog.bin
+        fi
+				WPA_CONF="/mnt/mtd/ipc/cfg/wpa_supplicant.conf"
+				echo "ctrl_interface=/var/run/wpa_supplicant" > $WPA_CONF
+				echo "update_config=1" >> $WPA_CONF
+				echo "network={" >> $WPA_CONF
+				echo "	ssid=\"$ESSID\"" >> $WPA_CONF
+				echo "	psk=\"$PWD\"" >> $WPA_CONF
+				echo "}" >> $WPA_CONF
+
         printf "Content-type: application/json\r\n\r\n"
         printf "{\n"
         printf "\"%s\":\"%s\"\\n" "error" "false"
