@@ -32,8 +32,8 @@ CAMERAS["GK-200MP2-B"]="GK-200MP2-B"
 # Common functions
 ###############################################################################
 
-if [ -d /home/user/x-tools/arm-sonoff-linux-uclibcgnueabi ]; then
-    export PATH="/home/user/x-tools/arm-sonoff-linux-uclibcgnueabi/bin:$PATH"
+if [ -d /home/mikey/arm-sonoff-linux-uclibcgnueabi ]; then
+    export PATH="/home/mikey/arm-sonoff-linux-uclibcgnueabi/bin:$PATH"
 fi
 export CROSSLINK_BASE=$(dirname $(dirname $(which arm-sonoff-linux-uclibcgnueabi-gcc)))
 
